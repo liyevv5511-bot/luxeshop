@@ -1,0 +1,204 @@
+/* ── Filter Bar ── */
+.filterbar {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 32px;
+}
+
+.filterbar__section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filterbar__label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.filterbar__label strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.filterbar__chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Price range slider */
+.filterbar__range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 200px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--accent) 0%,
+    var(--accent) var(--pct, 50%),
+    var(--border) var(--pct, 50%),
+    var(--border) 100%
+  );
+  outline: none;
+  cursor: pointer;
+}
+
+.filterbar__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.filterbar__range::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.filterbar__range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent);
+  cursor: pointer;
+}
+
+.filterbar__range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+  width: 200px;
+}
+
+/* Category chip count badge */
+.filterbar__chip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--radius-full);
+  background: var(--border);
+  color: var(--text-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 4px;
+  transition: var(--transition);
+}
+
+.tag.active .filterbar__chip-count {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* View toggle */
+.filterbar__view-toggle {
+  display: flex;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.filterbar__view-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filterbar__view-btn + .filterbar__view-btn {
+  border-left: 1.5px solid var(--border);
+}
+
+.filterbar__view-btn:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.filterbar__view-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Right side */
+.filterbar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.filterbar__count {
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.filterbar__sort {
+  padding: 9px 32px 9px 14px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: var(--transition);
+}
+
+.filterbar__sort:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .filterbar__right {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 640px) {
+  .filterbar {
+    padding: 16px;
+  }
+  .filterbar__range,
+  .filterbar__range-labels {
+    width: 100%;
+  }
+}

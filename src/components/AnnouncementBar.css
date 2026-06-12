@@ -1,0 +1,85 @@
+.ann-bar {
+  position: sticky;
+  top: 0;
+  z-index: 51;
+  height: 40px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6 50%, #6366f1);
+  background-size: 200% 100%;
+  animation: gradientShift 6s ease infinite;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  overflow: hidden;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.ann-bar__msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.ann-bar__msg--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ann-bar__icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.ann-bar__msg strong {
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 1px 7px;
+  border-radius: 4px;
+}
+
+.ann-bar__cta {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+}
+
+.ann-bar__cta:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.ann-bar__close {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.ann-bar__close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}

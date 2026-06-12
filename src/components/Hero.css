@@ -1,0 +1,238 @@
+/* ── Hero ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0 100px;
+  background: var(--bg);
+}
+
+/* Decorative gradient blobs */
+.hero__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.hero__blob--1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #6366f1, #8b5cf6);
+  top: -200px;
+  right: -100px;
+}
+
+.hero__blob--2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #06b6d4, #6366f1);
+  bottom: -150px;
+  left: -50px;
+}
+
+[data-theme="dark"] .hero__blob {
+  opacity: 0.15;
+}
+
+/* Content layout */
+.hero__content {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+}
+
+/* Text side */
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: slideUp 0.6s ease both;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.hero__headline {
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.hero__headline-accent {
+  background: linear-gradient(135deg, var(--accent), #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero__subtext {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 460px;
+  line-height: 1.7;
+}
+
+.hero__cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero__cta {
+  padding: 14px 28px;
+  font-size: 15px;
+  flex-direction: row-reverse;
+}
+
+.hero__cta-secondary {
+  padding: 14px 28px;
+  font-size: 15px;
+}
+
+/* Trust row */
+.hero__trust {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+.hero__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.hero__trust-item svg {
+  color: var(--accent);
+}
+
+/* Visual side */
+.hero__visual {
+  position: relative;
+  animation: slideUp 0.6s 0.15s ease both;
+}
+
+.hero__img-card {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.hero__img-card img {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.hero__img-card:hover img {
+  transform: scale(1.03);
+}
+
+.hero__img-card--main {
+  aspect-ratio: 4 / 3;
+}
+
+.hero__img-card--secondary {
+  position: absolute;
+  bottom: -32px;
+  left: -32px;
+  width: 40%;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid var(--bg);
+}
+
+.hero__img-card--secondary img {
+  aspect-ratio: 1;
+}
+
+/* Floating widgets */
+.hero__stat,
+.hero__rating-badge {
+  position: absolute;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 12px 18px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: slideUp 0.6s 0.3s ease both;
+}
+
+.hero__stat {
+  top: -16px;
+  right: -16px;
+}
+
+.hero__stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.hero__stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.hero__rating-badge {
+  bottom: 24px;
+  right: -24px;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.hero__rating-badge span:last-child {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero {
+    padding: 60px 0 80px;
+  }
+  .hero__content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .hero__visual {
+    display: none;
+  }
+  .hero__headline {
+    font-size: clamp(32px, 7vw, 48px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 40px 0 60px;
+  }
+  .hero__trust {
+    gap: 16px;
+  }
+}
