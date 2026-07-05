@@ -4,7 +4,7 @@ A modern, fully-featured e-commerce storefront built with **React 18** and **Vit
 
 ## Live Demo
 
-> Deploy to Vercel/Netlify and paste the URL here.
+🔗 **[luxeshop-gules.vercel.app](https://luxeshop-gules.vercel.app)** — deployed on Vercel.
 
 ## Screenshots
 
